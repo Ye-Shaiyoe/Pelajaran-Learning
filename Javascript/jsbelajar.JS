@@ -63,16 +63,23 @@ for(let x =0; x <= 5; x += 1){
 // const = tipe,, deklarasi
 //Contoh object js
 //Key : Value
+// {} -> object
+// : -> bukan deklarasi
+// " " -> string
+// , -> pemisah
+// ; -> akhir
 
 const Pegawai = {
-    name         : "Akrom..", 
+    name         : "Akrom", 
     nip          : "20080812..",
     jenisKelamin : "Laki-laki",
     Job          : "Operation System Engineer",
     Devisi       : "IT Firmware",
     usia         : 18,
-    perkenalan   : function(){
-        console.log(`Hai saya yanto`);
+    perkenalan(){
+        console.log(`Hai saya ${this.name}`
+            // this.nama adalah "ini" Memanggil properti (name) dalam object const pegawai.
+        );
     }
 }
 console.log(Pegawai.name);
