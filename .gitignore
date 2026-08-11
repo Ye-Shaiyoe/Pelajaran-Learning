@@ -1,0 +1,49 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# C++ build artifacts
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.ilk
+*.pdb
+*.idb
+*.o.d
+/build/
+
+# Ada build artifacts
+*.ali
+*.o
+*.a
+test/
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sln
+*.user
+*.cache
+
+# Misc
+*.log
+*.tmp
+*.temp
+
+/belajar_rust/target
