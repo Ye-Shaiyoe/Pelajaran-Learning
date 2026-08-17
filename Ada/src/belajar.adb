@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Hello is
+procedure Akrom is
 begin
-   Put_Line("Hello, World!");
-end Hello;
+   Put_Line ("Otw Jadi Aerospace Engineer");
+end Akrom;
