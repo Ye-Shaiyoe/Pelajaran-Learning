@@ -11,10 +11,6 @@
 
 clc; clear; close all;
 
-%% ============================================================
-%  BAGIAN 1: KONSTANTA & PARAMETER PESAWAT
-% ============================================================
-
 % -- Kondisi Atmosfer (ISA Sea Level) --
 rho   = 1.225;          % Densitas udara [kg/m^3]
 g     = 9.81;           % Percepatan gravitasi [m/s^2]
@@ -40,10 +36,6 @@ fprintf('==============================\n');
 fprintf(' AEROSPACE CALCULATOR v1.0\n');
 fprintf('==============================\n\n');
 
-%% ============================================================
-%  BAGIAN 2: GAYA ANGKAT (LIFT) & HAMBATAN (DRAG)
-%            sebagai fungsi sudut serang (alpha)
-% ============================================================
 
 alpha_deg = -5:0.5:20;          % Sudut serang [derajat]
 alpha_rad = deg2rad(alpha_deg);
@@ -56,9 +48,6 @@ fprintf('[1] Lift-to-Drag Maksimum (L/D_max):\n');
 [LoDmax, idx] = max(LoD);
 fprintf('    L/D_max = %.2f  pada alpha = %.1f deg\n\n', LoDmax, alpha_deg(idx));
 
-%% ============================================================
-%  BAGIAN 3: KECEPATAN KARAKTERISTIK
-% ============================================================
 
 V_range = linspace(20, 100, 500);   % Rentang kecepatan [m/s]
 
@@ -89,9 +78,6 @@ V_Tmin = sqrt((2 * W) / (rho * S) * sqrt(k / (3 * CD0)));
 fprintf('[4] Kecepatan Best Endurance (T_min):\n');
 fprintf('    V_Tmin  = %.2f m/s (%.2f km/h)\n\n', V_Tmin, V_Tmin*3.6);
 
-%% ============================================================
-%  BAGIAN 4: PERSAMAAN BREGUET (RANGE & ENDURANCE)
-% ============================================================
 
 % Range maksimum (Propeller aircraft - Breguet Range Equation)
 %   R = (eta_p / (g * SFC)) * (CL/CD)_max * ln(W0/W1)
@@ -113,10 +99,6 @@ E_breguet = (eta_p / (g * SFC)) * CL32CDmax * ...
             sqrt(2 * rho * S) * (1/sqrt(W1) - 1/sqrt(W0));
 fprintf('    Endurance Maksimum (E) = %.2f jam\n\n', E_breguet / 3600);
 
-%% ============================================================
-%  BAGIAN 5: MANUVER MELINGKAR (TURNING PERFORMANCE)
-% ============================================================
-
 % Bank angle & turn radius
 phi_deg = 10:5:80;
 phi_rad = deg2rad(phi_deg);
@@ -135,10 +117,6 @@ for i = 1:5:length(phi_deg)
         phi_deg(i), n_load(i), R_turn(i), rad2deg(omega(i)));
 end
 fprintf('\n');
-
-%% ============================================================
-%  BAGIAN 6: VISUALISASI (PLOTS)
-% ============================================================
 
 figure('Name', 'Aerospace Performance Dashboard', ...
        'NumberTitle', 'off', 'Color', [0.12 0.12 0.15], ...
