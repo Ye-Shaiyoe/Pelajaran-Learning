@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Dom</title>
+    <style>
+         .judul {
+            color: rgb(243, 131, 4);
+            font-weight: bold;  
+         }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Heading</h1>
+    <h2 id="heading2">0</h2>
+    <button id="stop-warna">Warna</button>
+    <script> 
+        const heading = document.getElementById("heading");
+        heading.textContent = "Mandiri Blokir Akun Nasabah"; // Karena textCOntent merubah heading pertama. 
+
+        let angka = 0 
+            setInterval(() => {
+            const h2 = document.getElementById('heading2');
+            h2.innerHTML = `Angka: ${angka}`;
+            angka = angka + 1;
+        }, 2000);
+
+        for (let index= 0; index < array.lengt; index++) {
+            const element = array[index];    
+        }
+
+        const stopWarna = document.getElementById("stop-warna");
+        let warnaAcak = ["merah", "kuning", "hijau", "biru", "ungu", "pink", "orange", "black"]
+        heading.style.color = "red";
+        stopWarna.addEventListener("click", function (){})
+    </script>
+</body>
+</html>
