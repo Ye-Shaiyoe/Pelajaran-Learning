@@ -15,25 +15,33 @@
     <h1 id="heading">Heading</h1>
     <h2 id="heading2">0</h2>
     <button id="stop-warna">Warna</button>
+
     <script> 
         const heading = document.getElementById("heading");
         heading.textContent = "Mandiri Blokir Akun Nasabah"; // Karena textCOntent merubah heading pertama. 
+        heading.style.color = "blue"
+        const h2 = document.getElementById('heading2');
 
         let angka = 0 
             setInterval(() => {
-            const h2 = document.getElementById('heading2');
             h2.innerHTML = `Angka: ${angka}`;
             angka = angka + 1;
         }, 2000);
 
-        for (let index= 0; index < array.lengt; index++) {
-            const element = array[index];    
-        }
+        const warna = ['red', 'yellow', 'green', 'blue', 'purple', 'pink', 'orange', 'black'];
+        let index = 0;
+        const stopButton = document.getElementById("stop-warna");
+        stopButton.addEventListener("click", () => {
+            h2.style.color = warna[index];
+            index = (index + 1) % warna.length;
 
-        const stopWarna = document.getElementById("stop-warna");
-        let warnaAcak = ["merah", "kuning", "hijau", "biru", "ungu", "pink", "orange", "black"]
-        heading.style.color = "red";
-        stopWarna.addEventListener("click", function (){})
+            const element = document.createElement('p');
+            element.textContent = ('SAYA AKAN LAWANN!!');
+            document.body.appendChild(element);
+
+            element.classList.add('judul')
+        });
+
     </script>
 </body>
 </html>
