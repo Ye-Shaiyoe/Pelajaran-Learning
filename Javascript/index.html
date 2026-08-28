@@ -15,6 +15,7 @@
     <h1 id="heading">Heading</h1>
     <h2 id="heading2">0</h2>
     <button id="stop-warna">Warna</button>
+    <marquee class="judul" behavior="" direction="">Saya Akan Lawan!!z</marquee>
 
     <script> 
         const heading = document.getElementById("heading");
@@ -35,11 +36,12 @@
             h2.style.color = warna[index];
             index = (index + 1) % warna.length;
 
-            const element = document.createElement('p');
+            const element = document.createElement('marquee');
             element.textContent = ('SAYA AKAN LAWANN!!');
             document.body.appendChild(element);
 
             element.classList.add('judul')
+
         });
 
     </script>
