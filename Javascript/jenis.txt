@@ -1,0 +1,77 @@
+
+CATATAN SINTAKS & SIMBOL DALAM JAVASCRIPT
+
+
+1. VARIABEL & DEKLARASI
+--------------------------------------------------
+var    -> Deklarasi variabel model lama (function-scoped, bisa diubah, bisa dideklarasi ulang).
+let    -> Deklarasi variabel modern (block-scoped, bisa diubah nilainya, TIDAK bisa dideklarasi ulang di scope yang sama).
+const  -> Deklarasi konstanta (block-scoped, nilainya TIDAK bisa diubah / reassign, TIDAK bisa dideklarasi ulang).
+=      -> Operator Assignment (pengisian/pemberian nilai ke variabel, bukan persamaan matematika).
+
+
+2. OBJECT & STRUKTUR DATA
+--------------------------------------------------
+// Object
+// const = tipe / deklarasi variabel
+// Contoh object JS:
+// Key : Value
+// {}  -> Menandakan sebuah Object literal
+// :   -> Pemisah antara Key (nama properti) dan Value (nilainya), bukan deklarasi variabel
+// ""  -> Tanda petik ganda untuk tipe data String (teks)
+// ''  -> Tanda petik tunggal untuk tipe data String (teks)
+// ``  -> Template literals / Backticks (string yang bisa memuat variabel ${nama} atau baris baru)
+// ,   -> Pemisah antar pasangan properti (Key: Value) atau antar elemen
+// ;   -> Akhir dari sebuah pernyataan (statement / limiter)
+
+Contoh Bentuk Object:
+const Pegawai = {
+    name         : "Akrom",                    // String
+    usia         : 18,                         // Number (angka)
+    isAktif      : true,                       // Boolean (true/false)
+    keahlian     : ["C", "JS", "Rust"],        // Array di dalam Object
+    perkenalan() {                             // Method / Fungsi di dalam Object
+        console.log(`Hai saya ${this.name}`);  // 'this' merujuk ke object ini sendiri (Pegawai)
+    }
+};
+
+
+3. ARRAY & STRUKTUR AKSES
+--------------------------------------------------
+[]     -> Menandakan sebuah Array (daftar data berurutan) atau akses indeks / property accessor.
+.      -> Dot Notation (titik), digunakan untuk mengakses properti atau method dari object (contoh: Pegawai.name).
+this   -> Kata kunci yang merujuk pada objek pemilik konteks saat ini.
+
+
+4. OPERATOR PERBANDINGAN & LOGIKA
+--------------------------------------------------
+==     -> Sama dengan (membandingkan nilai saja tanpa memeriksa tipe data).
+===    -> Sama persis / Strict Equal (membandingkan nilai DAN tipe data).
+!=     -> Tidak sama dengan nilainya.
+!==    -> Tidak sama secara nilai atau tipe data.
+>      -> Lebih dari.
+<      -> Kurang dari.
+>=     -> Lebih dari atau sama dengan.
+<=     -> Kurang dari atau sama dengan.
+&&     -> Operator Logika AND (kedua kondisi harus benar).
+||     -> Operator Logika OR (salah satu kondisi benar).
+!      -> Operator Logika NOT (kebalikan).
+
+
+5. OPERATOR ARITMATIKA
+--------------------------------------------------
++      -> Penjumlahan (atau penggabungan string / konkatenasi).
+-      -> Pengurangan.
+*      -> Perkalian.
+/      -> Pembagian.
+%      -> Modulo (sisa bagi).
++=     -> Menambahkan dan langsung menyimpan hasil ke variabel (contoh: x += 1 sama dengan x = x + 1).
+-=     -> Mengurangkan dan langsung menyimpan hasil.
+
+
+6. FUNGSI & PARAMETER
+--------------------------------------------------
+function namaFungsi(parameter) { ... } -> Struktur pembuatan fungsi standar.
+()     -> Parameter / Argumen fungsi (tempat menampung input) dan pemanggilan fungsi/eksekusi.
+{}     -> Block scope / badan kode fungsi.
+return -> Mengembalikan nilai dari dalam fungsi ke pemanggil.
