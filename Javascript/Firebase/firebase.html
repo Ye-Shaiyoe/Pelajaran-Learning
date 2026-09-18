@@ -1,0 +1,48 @@
+<!DOCTYPE html><html>
+<head>
+    <title>belajar firebase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Firebase Belajar</h1>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+      import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCaAU4O-wP3zhpDALenWWPWo7yMAwPXw-4",
+        authDomain: "monitoringesp32-e0697.firebaseapp.com",
+        databaseURL: "https://monitoringesp32-e0697-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "monitoringesp32-e0697",
+        storageBucket: "monitoringesp32-e0697.firebasestorage.app",
+        messagingSenderId: "786912422195",
+        appId: "1:786912422195:web:23a4ce309f6cb39aff7646",
+        measurementId: "G-S5Q51YJS62"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      function getData() {
+        const dbRef = ref(db);
+
+        get(child(dbRef, 'db/Siswa'))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              console.log("Data Diterima");
+              console.log(snapshot.val());
+            } else {
+              console.log("Data Tidak Ditemukan");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });      }
+
+      getData();
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
