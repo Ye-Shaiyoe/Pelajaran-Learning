@@ -25,9 +25,9 @@
       const db = getDatabase(app);
 
       function getData() {
-        const dbRef = ref(db);
+        const siswaRef = ref(db, "Siswa");
 
-        get(child(dbRef, 'db/Siswa'))
+        get(siswaRef)
           .then((snapshot) => {
             if (snapshot.exists()) {
               console.log("Data Diterima");
@@ -38,7 +38,8 @@
           })
           .catch((error) => {
             console.error("Error:", error);
-          });      }
+          });
+      }
 
       getData();
 
