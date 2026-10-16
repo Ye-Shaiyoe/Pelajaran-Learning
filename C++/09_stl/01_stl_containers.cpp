@@ -1,7 +1,3 @@
-// ============================================================
-// 09 - STL: Standard Template Library
-//      vector, list, deque, stack, queue, set, map, unordered_map
-// ============================================================
 #include <iostream>
 #include <vector>
 #include <list>

@@ -1,6 +1,3 @@
-// ============================================================
-// 13 - Lambda, std::function, Closures, Higher-Order Functions
-// ============================================================
 #include <iostream>
 #include <functional>   // std::function
 #include <vector>

@@ -1,6 +1,3 @@
-// ============================================================
-// 07 - Inheritance, Polymorphism, Virtual Function, Abstract Class
-// ============================================================
 #include <iostream>
 #include <string>
 #include <vector>

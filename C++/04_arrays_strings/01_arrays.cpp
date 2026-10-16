@@ -1,6 +1,3 @@
-// ============================================================
-// 04 - Array, Array 2D, std::string
-// ============================================================
 #include <iostream>
 #include <string>
 #include <algorithm>  // sort, reverse, find

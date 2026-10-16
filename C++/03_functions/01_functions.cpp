@@ -1,6 +1,3 @@
-// ============================================================
-// 03 - Fungsi: Deklarasi, Definisi, Overloading, Default Args
-// ============================================================
 #include <iostream>
 #include <string>
 using namespace std;

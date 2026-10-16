@@ -1,6 +1,3 @@
-// ============================================================
-// 06 - OOP: Class, Object, Constructor, Destructor, Encapsulation
-// ============================================================
 #include <iostream>
 #include <string>
 using namespace std;

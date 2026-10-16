@@ -1,6 +1,3 @@
-// ============================================================
-// 02 - Tipe Data, Variabel, Konstanta
-// ============================================================
 #include <iostream>
 #include <climits>   // untuk INT_MAX, INT_MIN
 #include <cfloat>    // untuk FLT_MAX

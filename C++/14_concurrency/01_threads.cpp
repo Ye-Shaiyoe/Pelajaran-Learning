@@ -1,7 +1,4 @@
-// ============================================================
-// 14 - Concurrency: thread, mutex, async, future, condition_variable
 // Compile: g++ -std=c++17 -pthread -o threads 01_threads.cpp
-// ============================================================
 #include <iostream>
 #include <thread>
 #include <mutex>

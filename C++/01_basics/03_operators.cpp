@@ -1,6 +1,3 @@
-// ============================================================
-// 03 - Operator: Aritmatik, Relasi, Logika, Bitwise
-// ============================================================
 #include <iostream>
 using namespace std;
 

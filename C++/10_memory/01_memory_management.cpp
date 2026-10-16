@@ -1,6 +1,3 @@
-// ============================================================
-// 10 - Memory Management: new/delete, Smart Pointers
-// ============================================================
 #include <iostream>
 #include <memory>    // unique_ptr, shared_ptr, weak_ptr
 #include <string>

@@ -1,6 +1,3 @@
-// ============================================================================
-// 🦀 MASTER MODUL PEMBELAJARAN BAHASA PEMROGRAMAN RUST (DARI 0 SAMPAI MAHIR) 🦀
-// ============================================================================
 
 pub mod level_1_dasar;
 pub mod level_2_memori;

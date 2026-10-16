@@ -1,7 +1,3 @@
-// ============================================================
-// 16 - Design Patterns: Singleton, Factory, Observer, RAII,
-//                       Strategy, Builder, Command
-// ============================================================
 #include <iostream>
 #include <string>
 #include <vector>
@@ -83,9 +79,6 @@ public:
     }
 };
 
-// ============================================================
-// 3. OBSERVER — Notifikasi ke banyak subscriber
-// ============================================================
 class Observer {
 public:
     virtual ~Observer() = default;
@@ -134,9 +127,6 @@ public:
     }
 };
 
-// ============================================================
-// 4. STRATEGY — Pilih algoritma saat runtime
-// ============================================================
 class SortStrategy {
 public:
     virtual ~SortStrategy() = default;
@@ -181,9 +171,6 @@ public:
     }
 };
 
-// ============================================================
-// 5. BUILDER — Bangun objek kompleks step-by-step
-// ============================================================
 class Pizza {
 public:
     string ukuran, adonan;
@@ -210,9 +197,6 @@ public:
     Pizza build() { return pizza; }
 };
 
-// ============================================================
-// 6. COMMAND — Enkapsulasi aksi sebagai objek
-// ============================================================
 class Command {
 public:
     virtual ~Command() = default;
@@ -252,7 +236,6 @@ public:
     }
 };
 
-// ============================================================
 int main() {
     // SINGLETON
     cout << "=== SINGLETON ===" << endl;

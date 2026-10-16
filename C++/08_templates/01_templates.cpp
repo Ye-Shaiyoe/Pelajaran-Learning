@@ -1,6 +1,3 @@
-// ============================================================
-// 08 - Templates: Generic Programming
-// ============================================================
 #include <iostream>
 #include <vector>
 #include <string>

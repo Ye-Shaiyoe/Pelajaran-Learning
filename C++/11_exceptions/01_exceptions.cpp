@@ -1,6 +1,3 @@
-// ============================================================
-// 11 - Exception Handling: try/catch/throw, Custom Exception
-// ============================================================
 #include <iostream>
 #include <stdexcept>   // runtime_error, logic_error, dll
 #include <string>

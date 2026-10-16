@@ -1,6 +1,3 @@
-// ============================================================
-// 02 - Loop: for, while, do-while, range-based for
-// ============================================================
 #include <iostream>
 #include <vector>
 using namespace std;

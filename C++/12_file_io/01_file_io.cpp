@@ -1,6 +1,3 @@
-// ============================================================
-// 12 - File I/O: fstream, baca/tulis file teks & biner
-// ============================================================
 #include <iostream>
 #include <fstream>
 #include <sstream>
