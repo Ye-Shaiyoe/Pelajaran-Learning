@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akrom FIrebase</title>
+</head>
+<body>
+
+<script src="assets/js/jquery.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+  import { getDatabase, onValue, ref } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBAiKSGapoD8qabC8XNi9H9e0sUJofYhUI",
+    authDomain: "ukk2027-akram.firebaseapp.com",
+    databaseURL: "https://ukk2027-akram-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ukk2027-akram",
+    storageBucket: "ukk2027-akram.firebasestorage.app",
+    messagingSenderId: "293493659648",
+    appId: "1:293493659648:web:9050dad44f12efead920e5",
+    measurementId: "G-PBGLF59WCP"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase();
+  const refUltrasonic = ref(database, 'dataUltrasonic'); // <- databasenya
+  onValue(refUltrasonic, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+  });
+</script>
+
+</body>
+</html>
