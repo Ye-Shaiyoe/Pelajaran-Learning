@@ -55,7 +55,6 @@ pub fn jalankan_demo() {
 
     println!("Total key awal di cache: {}", cache.len());
 
-    // Membaca dan menulis dari multiple threads secara paralel
     let mut worker_handles = vec![];
 
     for i in 1..=4 {
@@ -65,7 +64,6 @@ pub fn jalankan_demo() {
             let val = format!("Hasil komputasi thread #{i}");
             cache_clone.set(key.clone(), val);
 
-            // Baca ulang
             if let Some(v) = cache_clone.get(&key) {
                 println!("   [Worker {i}] Tersimpan di Cache -> {key}: \"{v}\"");
             }
