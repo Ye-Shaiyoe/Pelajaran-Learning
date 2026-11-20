@@ -1,0 +1,3 @@
+firebaseConfig adalah objek konfigurasi yang berisi kredensial dan informasi proyek untuk menginisialisasi dan menghubungkan aplikasi ke layanan Firebase.
+import berfungsi ngambil file lain
+ref ngambil data dari parents
