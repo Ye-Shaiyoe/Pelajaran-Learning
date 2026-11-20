@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Servo Controller</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Inter, "Segoe UI", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.14), transparent 32rem),
+                #090d16;
+            color: #e8edf7;
+        }
+
+        .servo-panel {
+            width: min(560px, calc(100% - 32px));
+            padding: 28px;
+            border: 1px solid rgba(148, 163, 184, 0.13);
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(22, 29, 43, 0.96), rgba(13, 18, 29, 0.96));
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+        }
+
+        .servo-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .servo-header h5 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9daac2;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #92a1ba;
+        }
+
+        .status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #38d39f;
+            box-shadow: 0 0 12px #38d39f;
+        }
+
+        .servo-control {
+            padding: 26px 24px 20px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 18px;
+            background: rgba(7, 11, 20, 0.58);
+        }
+
+        .servo-value {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 24px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        #nilaiServo {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin: 0;
+            color: #f8fafc;
+        }
+
+        #nilaiServo .value {
+            font-size: 52px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        #nilaiServo .unit {
+            font-size: 18px;
+            color: #8aa4c7;
+        }
+
+        .slider-wrap {
+            position: relative;
+        }
+
+        #servo {
+            --value: 0%;
+            width: 100%;
+            height: 26px;
+            margin: 0;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        #servo::-webkit-slider-runnable-track {
+            height: 8px;
+            border-radius: 999px;
+            background:
+                linear-gradient(90deg, #5b8cff var(--value), #283248 var(--value));
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55);
+        }
+
+        #servo::-moz-range-track {
+            height: 8px;
+            border-radius: 999px;
+            background: #283248;
+        }
+
+        #servo::-moz-range-progress {
+            height: 8px;
+            border-radius: 999px;
+            background: #5b8cff;
+        }
+
+        #servo::-webkit-slider-thumb {
+            width: 24px;
+            height: 24px;
+            margin-top: -8px;
+            appearance: none;
+            -webkit-appearance: none;
+            border: 5px solid #f8fafc;
+            border-radius: 50%;
+            background: #5b8cff;
+            box-shadow: 0 4px 16px rgba(91, 140, 255, 0.65);
+        }
+
+        #servo::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border: 5px solid #f8fafc;
+            border-radius: 50%;
+            background: #5b8cff;
+            box-shadow: 0 4px 16px rgba(91, 140, 255, 0.65);
+        }
+
+        #servo:focus-visible {
+            outline: none;
+        }
+
+        #servo:focus-visible::-webkit-slider-thumb {
+            box-shadow: 0 0 0 5px rgba(91, 140, 255, 0.22), 0 4px 16px rgba(91, 140, 255, 0.65);
+        }
+
+        .servo-scale {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            color: #697792;
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body>
+    <section class="servo-panel" aria-label="Servo controller">
+        <div class="servo-header">
+            <h5>Servo Position</h5>
+            <span class="status">Connected</span>
+        </div>
+
+        <div class="servo-control">
+            <div class="servo-value">
+                <p id="nilaiServo">
+                    <span class="value">0</span>
+                    <span class="unit">°</span>
+                </p>
+            </div>
+
+            <div class="slider-wrap">
+                <input type="range" name="servo" id="servo" min="0" max="180" value="0" aria-label="Servo angle">
+                <div class="servo-scale">
+                    <span>0°</span>
+                    <span>90°</span>
+                    <span>180°</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+        import { getDatabase, onValue, ref, set } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "ukk2027-akram.firebaseapp.com",
+            databaseURL: "https://ukk2027-akram-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "ukk2027-akram",
+            storageBucket: "ukk2027-akram.firebasestorage.app",
+            messagingSenderId: "293493659648",
+            appId: "1:293493659648:web:9050dad44f12efead920e5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const slider = document.getElementById("servo");
+        const output = document.getElementById("nilaiServo");
+        const servoRef = ref(database, "servo");
+
+        const updateSlider = (nilai) => {
+            const progress = (nilai / 180) * 100;
+            slider.value = nilai;
+            slider.style.setProperty("--value", `${progress}%`);
+            output.innerHTML = `<span class="value">${nilai}</span><span class="unit">°</span>`;
+        };
+
+        onValue(servoRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                const nilai = Number(data.putaran);
+                updateSlider(nilai);
+                console.log("Data from Firebase:", nilai);
+            }
+        });
+
+        slider.addEventListener("input", () => {
+            const nilai = Number(slider.value);
+            updateSlider(nilai);
+            set(servoRef, {
+                putaran: nilai
+            }).catch((error) => {
+                console.error("Firebase Error:", error);
+            });
+        });
+    </script>
+
+</body>
+</html>
