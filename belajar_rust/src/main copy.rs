@@ -88,10 +88,10 @@ fn menu_interaktif() {
             "11" => level_11_proyek_nyata::pelajari_semua(),
             "A" | "ALL" => jalankan_semua_level(),
             "0" | "Q" | "EXIT" => {
-                println!("👋 Selamat belajar dan berlatih Rust! Sampai jumpa.");
+                println!(" Selamat belajar dan berlatih Rust! Sampai jumpa.");
                 break;
             }
-            _ => println!("⚠️ Pilihan tidak valid, silakan masukkan nomor 1-11 atau A."),
+            _ => println!(" Pilihan tidak valid, silakan masukkan nomor 1-11 atau A."),
         }
     }
 }
